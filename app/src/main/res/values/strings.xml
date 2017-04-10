@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Car_Finder</string>
+
+    <!-- Titles -->
+    <string name="title_InfoScreen">Info Screen</string>
+    <string name="title_3D_Velocity_Plot">3D Velocity Plot</string>
+</resources>
