@@ -75,8 +75,6 @@ public class InfoScreen extends Activity implements SensorEventListener {
 
         PointF_3D pt;
 
-        String str = new String();
-
         /** Note: to get positions, initialize a PositionList object
          * initialize an a sensor handler for both the geomagnetic and accelerometer
          * pass the events they collect to PositionList object by the processEvent method
@@ -84,21 +82,16 @@ public class InfoScreen extends Activity implements SensorEventListener {
          * To retrieve relative positions, PositionList.getLastPoint() or PositionList.getPointAtPos(int n)
          * both return a PointF_3D object
          */
-        for(int i = 1; i <= posList.getSize(); i++) {
-            pt = posList.getPointAtPos(i);
-            str = str.concat(String.format(
-                    Locale.ENGLISH,
-                    "Position %d : \n\tX Component : %f \n\tY Component : %f \n\tZ Component : %f \n",
-                    i, pt.getX(), pt.getY(), pt.getZ()
-                    )
-            );
-        }
 
-        textPosView.setText(
-                str.toString()
+        pt = posList.getTotalDisplacement();
+
+        textPosView.setText(String.format(
+                Locale.ENGLISH,
+                "Total Displacement\n\tX Component : %f \n\tY Component : %f \n\tZ Component : %f \n",
+                pt.getX(), pt.getY(), pt.getZ()
+                )
         );
 
-/*
         // Display Accelerometer result.
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             oldT = newT;
@@ -151,6 +144,5 @@ public class InfoScreen extends Activity implements SensorEventListener {
                     )
             );
         }
-        */
     }
 }

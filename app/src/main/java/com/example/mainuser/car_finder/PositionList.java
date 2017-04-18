@@ -146,4 +146,8 @@ public class PositionList extends CircularDoublyLinkedList {
     public int getSize() {
         return posList.getSize();
     }
+
+    public PointF_3D getTotalDisplacement() {
+        return totalPosition;
+    }
 }
